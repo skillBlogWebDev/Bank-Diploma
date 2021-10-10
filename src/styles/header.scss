@@ -1,0 +1,14 @@
+@import './variables.scss';
+
+.header {
+  padding: 24px 0;
+  background-color: var(--color-denim);
+
+  &__logo {
+    display: block;
+    font-weight: 300;
+    font-size: 48px;
+    line-height: 56px;
+    color: var(--color-white);
+  }
+}

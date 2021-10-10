@@ -7,12 +7,9 @@ const ImageMinimizerPlugin = require('image-minimizer-webpack-plugin');
 
 // eslint-disable-next-line no-undef
 module.exports = (env) => ({
-  entry: {
-    login: './src/login.js',
-    account: './src/account.js',
-  },
+  entry: './src/index.js',
   output: {
-    filename: '[name][contenthash].js',
+    filename: 'main[contenthash].js',
     publicPath: '/',
   },
   module: {
@@ -47,10 +44,7 @@ module.exports = (env) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: 'src/login.html',
-    }),
-    new MiniCSSExtractPlugin({
-      filename: 'main[contenthash].css',
+      title: 'Bank Diploma | Login',
     }),
     new ImageMinimizerPlugin({
       minimizerOptions: {
@@ -61,6 +55,7 @@ module.exports = (env) => ({
         ],
       },
     }),
+    new MiniCSSExtractPlugin(),
   ],
   devServer: {
     historyApiFallback: true,

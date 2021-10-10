@@ -1,143 +1,94 @@
+@import './variables.scss';
+
 @font-face {
-  font-family: WorkSans, sans-serif;
-  src: url('../assets/fonts/Worksans.woff');
+  font-family: 'Worksans';
+  src: url('../assets/fonts/Worksans.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: WorkSans, sans-serif;
-  src: url('../assets/fonts/Worksanssemibold.woff');
+  font-family: 'Worksans';
+  src: url('../assets/fonts/Worksans-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: WorkSans, sans-serif;
-  src: url('../assets/fonts/Worksansmedium.woff');
+  font-family: 'Worksans';
+  src: url('../assets/fonts/Worksans-light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
-  font-family: RobotoMedium, sans-serif;
-  src: url('../assets/fonts/Roboto-Medium.woff');
+  font-family: 'Worksans';
+  src: url('../assets/fonts/Worksans-semibold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
-img {
-    max-width: 100%;
+@font-face {
+  font-family: 'Worksans';
+  src: url('../assets/fonts/Worksans-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/Ubuntu-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../assets/fonts/Ubuntu-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Ubuntu';
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-    max-width: 440px !important;
-    padding: 0 15px;
-    margin: 0 auto;
+  max-width: 1370px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
-.form {
-    position: relative;
-    padding-top: 50px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.app-btn {
+  border: none;
+  cursor: pointer;
+  margin: 0;
+  font-family: 'Ubuntu';
+  font-weight: 500;
+  background-color: var(--color-denim);
+  border-radius: var(--small-offset-border);
+  color: var(--color-white);
 }
 
-.form__inner {
-    display: flex;
-    align-items: center;
-}
-
-.form__btn {
-    align-self: flex-end;
-}
-
-.form__label {
-    position: relative;
-}
-
-.error-block {
-    display: block;
-    position: absolute;
-    top: 34px;
-    left: 8px;
-    font-size: 14px;
-    color: red;
-}
-
-.form__cart {
-    position: absolute;
-    bottom: -115px;
-    left: 0;
-    width: 205px;
-    height: auto;
-}
-
-// body {
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   background-color: blueviolet;
-// }
-
-// .game-content {
-//   display: flex;
-//   flex-wrap: wrap;
-//   max-width: 1260px;
-//   margin: 30px auto 0;
-// }
-//   .card {
-//     max-width: 200px;
-//     height: 200px;
-//     flex-shrink: 0;
-//     margin: 0 15px 15px 0;
-//   }
-
-//   .back-face {
-//     border-radius: 20px;
-//     width: 100%;
-//     height: 100%;
-//   }
-
-//   .flip > .back-face  {
-//     display: none;
-//   }
-
-//   .front-face {
-//     width: 200px;
-//     height: 100%;
-//     display: none;
-//     align-items: center;
-//     justify-content: center;
-//     border-radius: 20px;
-//     font-size: 70px;
-//     border: 2px solid burlywood;
-//   }
-
-//   .flip > .front-face  {
-//     display: flex;
-//   }
-
-//   input {
-//     width: 300px;
-//     height: 50px;
-//     font-size: 20px;
-//     border-radius: 10px;
-//   }
-
-//   .start-game__title {
-//     color: antiquewhite;
-//   }
-
-//   .start-game__text {
-//     font-size: 18px;
-//     color: antiquewhite;
-//   }
-
-//   .start-game__text strong {
-//     font-size: 20px;
-//     font-weight: 500;
-//     display: block;
-//     color: tomato;
-//   }
-
-//   .start-game__btn {
-//     height: 50px;
-//     border-radius: 10px;
-//     cursor: pointer;
-//     background-color: #fff;
-//   }
