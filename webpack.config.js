@@ -44,7 +44,7 @@ module.exports = (env) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Bank Diploma | Login',
+      title: 'Bank Diploma',
     }),
     new ImageMinimizerPlugin({
       minimizerOptions: {

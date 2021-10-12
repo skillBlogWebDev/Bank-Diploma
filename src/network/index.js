@@ -1,11 +1,20 @@
-export const auth = async () => {
-  const response = await fetch('http://localhost:3000/login', {
-    method: 'POST',
-    body: {
-      login: 'developer',
-      password: 'skillbox',
-    },
-  });
+export const auth = async (login, password) => {
+  try {
+    const response = await fetch('http://localhost:3000/login', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        login,
+        password,
+      }),
+    });
 
-  console.log(response);
+    const result = await response.json();
+
+    return result.payload != null ? true : false;
+  } catch (error) {
+    console.log(error);
+  }
 };

@@ -15,5 +15,7 @@ export const createBillsPage = () => {
 
   const billSection = element.section;
 
+  setChildren(element.main, billSection);
+
   return billSection;
 };

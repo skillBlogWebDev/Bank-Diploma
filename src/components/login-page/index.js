@@ -1,8 +1,8 @@
 import 'babel-polyfill';
 import { el, setChildren } from 'redom';
 import { DOMElements } from '../layout/helper';
-import '../../styles/login.scss';
 import { auth } from '../../network';
+import '../../styles/login.scss';
 
 export const createLoginForm = () => {
   const element = DOMElements();
@@ -32,12 +32,11 @@ export const createLoginForm = () => {
     passwordInput,
   ]);
 
-  const loginBtn = el('button', { class: 'app-btn login__btn' }, 'Войти');
-
-  loginBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    auth();
-  });
+  const loginBtn = el(
+    'button',
+    { class: 'app-btn login__btn', route: '/bills' },
+    'Войти'
+  );
 
   const loginForm = el('form', { class: 'login__form' }, [
     loginLabel,
@@ -49,6 +48,20 @@ export const createLoginForm = () => {
     loginHeading,
     loginForm,
   ]);
+
+  loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const isAuth = await auth(loginInput.value, passwordInput.value);
+
+    if (isAuth) {
+      location.reload();
+      localStorage.setItem(
+        'auth',
+        JSON.stringify({ isAuth: true, page: 'bills' })
+      );
+    }
+  });
 
   setChildren(element.section, element.container);
   setChildren(element.container, loginInner);

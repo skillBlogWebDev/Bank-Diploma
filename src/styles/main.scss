@@ -68,6 +68,10 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
+
 body {
   font-family: 'Ubuntu';
   font-weight: 400;
@@ -90,5 +94,11 @@ body {
   background-color: var(--color-denim);
   border-radius: var(--small-offset-border);
   color: var(--color-white);
+}
+
+.list-reset {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 }
 
