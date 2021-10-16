@@ -1,0 +1,72 @@
+@import './variables.scss';
+
+.accounts {
+  padding-top: 50px;
+
+  &__heading {
+    margin: 0;
+    margin-right: 35px;
+    font-weight: 700;
+    font-size: 34px;
+  }
+
+  &-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+
+    &__inner {
+      display: flex;
+    }
+  }
+
+  &-filter {
+    &__btn {
+      position: relative;
+      border: none;
+      min-width: 300px;
+      padding: 0;
+      text-align: start;
+      line-height: 24px;
+      padding: 10px 16px;
+      border-radius: var(--small-offset-border);
+      border: 1px solid var(--color-denim);
+      background-color: transparent;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 19px;
+      top: 19px;
+      width: 10px;
+      height: 5px;
+
+      svg {
+        width: 10px;
+        height: 5px;
+        display: block;
+      }
+    }
+  }
+
+  .accounts-more {
+    position: relative;
+    padding: 16px 24px;
+    padding-left: 50px;
+
+    .plus {
+      position: absolute;
+      left: 21px;
+      top: 14px;
+      width: 20px;
+      height: 20px;
+
+      svg {
+        display: block;
+        width: 20px;
+        height: 20px;
+      }
+    }
+  }
+}

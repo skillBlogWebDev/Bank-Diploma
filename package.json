@@ -41,9 +41,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "inputmask": "^5.0.6",
     "navigo": "^8.11.1",
-    "redom": "^3.27.1",
-    "serve": "^12.0.1"
+    "redom": "^3.27.1"
   }
 }

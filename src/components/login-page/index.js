@@ -54,12 +54,12 @@ export const createLoginForm = () => {
 
     const isAuth = await auth(loginInput.value, passwordInput.value);
 
-    if (isAuth) {
-      location.reload();
+    if (isAuth.auth) {
       localStorage.setItem(
         'auth',
-        JSON.stringify({ isAuth: true, page: 'bills' })
+        JSON.stringify({ isAuth: true, page: 'bills', token: isAuth.token })
       );
+      location.reload();
     }
   });
 
