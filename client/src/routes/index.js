@@ -22,4 +22,8 @@ export const appRouter = new Router('appRouter', [
     path: '/atm-machines',
     name: 'ATM machines',
   },
+  {
+    path: '/bills/account',
+    name: 'Account',
+  },
 ]);

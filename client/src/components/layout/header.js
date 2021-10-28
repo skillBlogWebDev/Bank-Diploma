@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import { el, setChildren } from 'redom';
 import { DOMElements } from './helper';
+import { goToCurrentPage } from '../../utils';
 import '../../styles/main.scss';
 import '../../styles/header.scss';
 
@@ -27,7 +28,9 @@ export const createHeader = (isAuth = false) => {
     'button',
     {
       class: `nav__link app-btn ${
-        currentData.page == 'bills' ? 'active-page' : ''
+        currentData.page == 'bills' || currentData.page == 'bills/account'
+          ? 'active-page'
+          : ''
       }`,
       route: '/bills',
     },
@@ -60,19 +63,6 @@ export const createHeader = (isAuth = false) => {
     window.history.pushState({}, '', '/');
     location.reload();
   });
-
-  const setCurrentPageToLocalStorage = (page) => {
-    const currentPage = JSON.parse(localStorage.getItem('auth'));
-    currentPage.page = page;
-    localStorage.setItem('auth', JSON.stringify(currentPage));
-  };
-
-  const goToCurrentPage = (page) => {
-    setCurrentPageToLocalStorage(page);
-    setTimeout(() => {
-      location.reload();
-    }, 0);
-  };
 
   currency.addEventListener('click', () => {
     goToCurrentPage('currency');

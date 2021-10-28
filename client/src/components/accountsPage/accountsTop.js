@@ -13,10 +13,11 @@ export const accountsTop = () => {
     { class: 'accounts__heading' },
     'Ваши счета'
   );
-  const accountsFilterBtn = el('button', { class: 'accounts-filter__btn' }, [
-    'Сортировка',
-    filterIcon,
-  ]);
+  const accountsFilterBtn = el(
+    'button',
+    { class: 'accounts-filter__btn', route: '/bills/account' },
+    ['Сортировка', filterIcon]
+  );
 
   filterIcon.innerHTML = filterArrow;
   plusIcon.innerHTML = plus;

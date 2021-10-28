@@ -1,6 +1,7 @@
 import 'babel-polyfill';
 import { el } from 'redom';
 import '../../styles/accounts.scss';
+import { goToCurrentPage } from '../../utils';
 
 export const createAccountCard = (data) => {
   console.log(data);
@@ -36,13 +37,18 @@ export const createAccountCard = (data) => {
   ]);
   const accountCardBtn = el(
     'button',
-    { class: 'account-card__btn app-btn' },
+    { route: '/bills/account', class: 'account-card__btn app-btn' },
     'Открыть'
   );
   const accountCard = el('div', { class: 'account-card' }, [
     accountCardInner,
     accountCardBtn,
   ]);
+
+  accountCardBtn.addEventListener('click', () => {
+    window.history.pushState({}, '', '/bills/account');
+    goToCurrentPage('bills/account');
+  });
 
   return accountCard;
 };

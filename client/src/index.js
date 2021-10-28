@@ -8,13 +8,12 @@ import { createCurrencyPage } from './components/currency-page/index';
 import { createAtmMachinesPage } from './components/atm-machines-page/index';
 import { appRouter } from './routes';
 import { getAccountsByToken } from './network';
+import { createAccountPage } from './components/accountPage';
 import './styles/main.scss';
 
 const page = (() => {
   const currentPath = window.location.pathname;
-  const route = appRouter.routes.filter((r) => r.path === currentPath)[0];
-
-  return route.path;
+  return appRouter.routes.filter((r) => r.path === currentPath)[0].path;
 })();
 
 const createApp = async () => {
@@ -23,13 +22,14 @@ const createApp = async () => {
   const loginForm = createLoginForm();
   const currencyPage = createCurrencyPage();
   const atmMachinesPage = createAtmMachinesPage();
+  const accountPage = createAccountPage();
 
   if (authData == null) {
     window.history.pushState({}, '', '/');
     setChildren(element.main, loginForm);
   }
 
-  if (page === '/') {
+  if (page === '/' && authData == null) {
     setChildren(element.main, loginForm);
   }
 
@@ -41,10 +41,9 @@ const createApp = async () => {
     setChildren(element.main, atmMachinesPage);
   }
 
-  setChildren(window.document.body, [
-    createHeader(authData == null ? false : authData.isAuth),
-    element.main,
-  ]);
+  if (page === '/bills/account' && authData != null) {
+    setChildren(element.main, accountPage);
+  }
 
   if (page === '/' && authData != null) {
     window.history.pushState({}, '', '/bills');
@@ -60,6 +59,11 @@ const createApp = async () => {
       createAccountsPage(await getAccountsByToken(authData.token))
     );
   }
+
+  setChildren(window.document.body, [
+    createHeader(authData == null ? false : authData.isAuth),
+    element.main,
+  ]);
 };
 
 createApp();

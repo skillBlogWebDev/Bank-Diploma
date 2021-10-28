@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "chart.js": "^3.6.0",
     "navigo": "^8.11.1",
     "redom": "^3.27.1"
   }

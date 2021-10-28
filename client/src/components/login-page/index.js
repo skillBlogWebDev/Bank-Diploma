@@ -19,7 +19,7 @@ export const createLoginForm = () => {
 
   const passwordInput = el('input', {
     class: 'login__input',
-    type: 'text',
+    type: 'password',
     placeholder: 'Пароль',
   });
 
